@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event List</title>
+</head>
+<body>
+    <h1>Upcoming Events</h1>
+    <a href="{% url 'event_create' %}">+ Create Event</a>
+    <ul>
+        {% for event in events %}
+            <li>
+                <strong>{{ event.title }}</strong> - {{ event.start_time }}
+                <a href="{% url 'event_rsvp' event.id %}">RSVP</a>
+            </li>
+        {% empty %}
+            <li>No events found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+<hr>
+<h5>by: Omar Belfeki</h5>
